@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = "./message";
+
+
+service Service {
+  rpc SendMessage (stream Message) returns (stream Message) {}
+}
+
+message Status {
+    int32 pulse = 1;
+    float longitude = 2;
+    float latitude = 3;
+}
+
+message Message {
+    string text = 1;
+}
